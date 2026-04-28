@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
 //============= RENDERER =============================
 
@@ -28,6 +29,11 @@ const camera = new THREE.PerspectiveCamera(
     10     // Far clipping plane
 );
 camera.position.z = 2; 
+
+// Camera controls
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true
+controls.dampingFactor = 0.02
 
 //============= SCENE SETUP ==================
 const scene = new THREE.Scene();
